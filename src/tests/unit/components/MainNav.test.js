@@ -14,3 +14,17 @@ describe('MainNav', () => {
     });
 });
 
+// eslint-disable-next-line no-undef
+it("displays menu items for navigation", () => {
+    const wrapper = mount(MainNav);
+    const navigationMenuItems = wrapper.findAll("li");
+    const navigationMenuTexts = navigationMenuItems.map((item) => item.text())
+   expect(navigationMenuTexts).toEqual({
+       "Teams",
+       "Locations",
+       "Life at New Careers",
+       "How we hire",
+       "Students",
+       "Jobs"
+   })
+})
