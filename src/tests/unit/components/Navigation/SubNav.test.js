@@ -1,5 +1,5 @@
 import { mount } from "@vue/test-utils";
-import SubNav from "@/components/SubNav";
+import SubNav from "@/components/Navigation/SubNav";
 
 // eslint-disable-next-line no-undef
 describe("SubNav", () => {

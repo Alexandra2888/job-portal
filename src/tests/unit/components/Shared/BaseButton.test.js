@@ -1,6 +1,6 @@
 import { mount} from "@vue/test-utils";
 
-import BaseButton from "@/components/BaseButton";
+import BaseButton from "@/components/Shared/BaseButton";
 
 // eslint-disable-next-line no-undef
 describe("BaseButton", ()=> {

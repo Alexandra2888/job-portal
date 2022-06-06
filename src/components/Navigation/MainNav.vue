@@ -20,9 +20,9 @@
   </header>
 </template>
 <script>
-import BaseButton from '../components/BaseButton'
-import ProfileImage from "../components/ProfileImage";
-import SubNav from "../components/SubNav";
+import BaseButton from '../Shared/BaseButton'
+import ProfileImage from "./ProfileImage";
+import SubNav from "./SubNav";
 
 export default {
   components: { BaseButton, ProfileImage, SubNav },

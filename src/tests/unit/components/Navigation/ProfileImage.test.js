@@ -1,6 +1,6 @@
 import {shallowMount} from "@vue/test-utils";
 
-import ProfileImage from "@/components/ProfileImage";
+import ProfileImage from "@/components/Navigation/ProfileImage";
 
 // eslint-disable-next-line no-undef
 describe("profileImage", () => {

@@ -1,5 +1,5 @@
 import {mount} from "@vue/test-utils";
-import MainNav from "@/components/MainNav";
+import MainNav from "@/components/Navigation/MainNav";
 import { shallowMount } from "@vue/test-utils";
 
 // eslint-disable-next-line no-undef
