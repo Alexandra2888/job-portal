@@ -1,19 +1,15 @@
 <template>
   <div>
-    <MainNav />
-    <hero />
+   <main-nav />
+    <router-view/>
   </div>
 </template>
 
 <script>
-import MainNav from "./components/Navigation/MainNav.vue";
-import Hero from "@/components/JobSearch/Hero";
+import MainNav from "@/components/Navigation/MainNav";
+
 export default {
-  name: 'App',
-  components: {
-    MainNav,
-    Hero
-  }
+  name: "App",
+  components: {MainNav}
 }
 </script>
-

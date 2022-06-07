@@ -7,7 +7,7 @@
 
         <div class="col-start-2 col-span-5">
           <Headline />
-          <job-search-form />
+          <JobSearchForm/>
         </div>
 
 
