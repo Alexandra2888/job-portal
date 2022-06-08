@@ -18,7 +18,7 @@ export default {
   },
   methods: {
     changeTitle() {
-     this.interval =  setInterval(() => {
+      this.interval =  setInterval(() => {
         const actions = ["Build", "Create", "Design", "Code"];
         const currentActionIndex = actions.indexOf(this.action);
         const nextActionIndex = (currentActionIndex + 1 ) % 4;
@@ -30,12 +30,12 @@ export default {
   computed: {
     actionClasses() {
       return {
-       [this.action.toLowerCase()]: true
+        [this.action.toLowerCase()]: true
       }
     }
   },
   created() {
-this.changeTitle()
+    this.changeTitle()
   },
   beforeUnmount() {
     clearInterval(this.interval);
@@ -46,15 +46,12 @@ this.changeTitle()
 .build{
   color: #1a73eB;
 }
-
 .create{
   color: #34a853;
 }
-
 .design {
   color: #f9ab00;
 }
-
 .code {
   color: #d93025;
 }

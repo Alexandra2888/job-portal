@@ -1,5 +1,5 @@
 import { mount } from "@vue/test-utils";
-import TextInput from "@/components/Shared/TextInput";
+import TextInput from "@/components/shared/TextInput";
 
 
 

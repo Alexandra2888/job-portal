@@ -20,10 +20,9 @@
   </header>
 </template>
 <script>
-import BaseButton from '../Shared/BaseButton'
+import BaseButton from '../shared/BaseButton'
 import ProfileImage from "./ProfileImage";
 import SubNav from "./SubNav";
-
 export default {
   components: { BaseButton, ProfileImage, SubNav },
   name: "MainNav",
@@ -32,7 +31,7 @@ export default {
       menuItems: [
         { text: "Teams", url: "/" },
         { text: "Locations", url: "/" },
-        { test: "Life at New Careers", url: "/" },
+        { text: "Life at New Careers", url: "/" },
         { text: "How we hire", url: "/" },
         { text: "Students", url: "/" },
         { text: "Jobs", url: "/jobs/results" }
