@@ -1,5 +1,5 @@
 <template>
-  <form class="flex items-center w-full h-12 mt-14 border border-solid border-brand-grey-3 rounded-3xl">
+  <form @submit.prevent="searchForJobs" class="flex items-center w-full h-12 mt-14 border border-solid border-brand-grey-3 rounded-3xl">
     <svg class="ml-4 mr-3" height="32px" id="Layer_1" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 32 32"
          width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
          xmlns:xlink="http://www.w3.org/1999/xlink"><g transform="translate(576 192)"><path d="M-544.88-165.121l-7.342-7.342c-1.095,1.701-2.541,3.148-4.242,4.242l7.343,7.342c1.172,1.172,3.071,1.172,4.241,0   C-543.707-162.048-543.707-163.947-544.88-165.121z"/><path
@@ -7,8 +7,8 @@
         d="M-571-180h2c0-2.757,2.242-5,5-5v-2C-567.86-187-571-183.858-571-180z"/></g></svg>
     <div class="flex flex-nowrap flex-1 h-full text-base font-light">
       <div class="relative flex items-center flex-1 h-full pr-3">
-        <label class="absolute left-0 -top-10">Role</label>
-        <input type="text" v-model="role"   placeholder="Software engineer" class="w-full text-lg font-normal focus:outline-none">
+        <label class="absolute left-0 -top-10"></label>
+        <text-input type="text"  v-model="role" placeholder="Software engineer" class="w-full text-lg font-normal focus:outline-none"/>
       </div>
 
 
@@ -16,7 +16,7 @@
 
       <div class="relative flex items-center flex-1 h-full pl-3">
 <label class="absolute left-0 -top-10">Where?</label>
-        <input type="text" v-model="location"  placeholder="Los Angeles" class="w-full text-lg font-normal focus:outline-none">
+        <text-input type="text" v-model="location" placeholder="Los Angeles" class="w-full text-lg font-normal focus:outline-none" />
       </div>
     </div>
     <base-button text="Search" type="secondary" class="ml-4 mr-3"></base-button>
@@ -24,14 +24,23 @@
 </template>
 <script>
 import BaseButton from "@/components/shared/BaseButton";
+import TextInput from "@/components/shared/TextInput";
 export default {
   name: "JobSearchForm",
-  components: {BaseButton},
+  components: {BaseButton, TextInput},
 data(){
     return {
       role: "",
       location:""
     }
-}
+},
+  methods: {
+    searchForJobs(){
+      this.$router.push({
+        name: "JobResults",
+        query: { role: this.role, location: this.location }
+      })
+    }
+  }
 }
 </script>
