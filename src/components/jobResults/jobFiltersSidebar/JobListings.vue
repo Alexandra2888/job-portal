@@ -18,15 +18,14 @@
 </template>
 <script>
 import JobListing from "@/components/jobResults/JobListing";
-import axios from "axios";
+import {mapActions, mapState} from "vuex";
+import { FETCH_JOBS} from "@/store";
 
 export default {
   name: "JobListings",
   components: {JobListing},
-  data() {
-    return {
-      jobs: [],
-    };
+  methods: {
+    ...mapActions([FETCH_JOBS]),
   },
   computed: {
     currentPage() {
@@ -49,10 +48,10 @@ export default {
       const lastJobIndex = pageNumber * 10;
       return this.jobs.slice(firstJobIndex, lastJobIndex);
     },
+    ...mapState(["jobs"])
   },
   async mounted() {
-    const response = await axios.get("http://localhost/jobs");
-    this.jobs = response.data;
+this.FETCH_JOBS();
   }
 }
 </script>
