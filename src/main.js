@@ -5,11 +5,12 @@ import App from './App.vue'
 import './assets/tailwind.css'
 import router from './router'
 import MainNav from "@/components/navigation/MainNav";
+import store from './store'
 
 
 library.add(faSearch);
 
-const app = createApp(App);
+const app = createApp(App).use(store);
 app.component("main-nav", MainNav)
 app.use(router);
 app.mount("#app");
