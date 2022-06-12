@@ -51,7 +51,7 @@ export default {
     ...mapState(["jobs"])
   },
   async mounted() {
-this.FETCH_JOBS();
+this.$store.dispatch(FETCH_JOBS)
   }
 }
 </script>

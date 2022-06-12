@@ -32,7 +32,7 @@ const store = createStore({
   state,
   mutations,
   actions,
-  strict: true // only in development code
+  strict: true // only in development mode
 })
 
 export default store;
