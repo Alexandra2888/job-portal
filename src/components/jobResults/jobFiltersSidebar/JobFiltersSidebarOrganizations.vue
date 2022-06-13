@@ -3,21 +3,9 @@
     <div class="mt-5">
       <fieldset>
         <ul class="flex flex-row flex-wrap">
-          <li class="w-1/2 h-8">
-            <input id="VueTube" type="checkbox" class="mr-3" />
-            <label for="VueTube">VueTube</label>
-          </li>
-          <li class="w-1/2 h-8">
-            <input id="Between Vue and Me" type="checkbox" class="mr-3" />
-            <label for="Between Vue and Me">Between Vue and Me</label>
-          </li>
-          <li class="w-1/2 h-8">
-            <input id="Et Vue Brute" type="checkbox" class="mr-3" />
-            <label for="Et Vue Brute">Et Vue Brute</label>
-          </li>
-          <li class="w-1/2 h-8">
-            <input id="Vue and a Half Men" type="checkbox" class="mr-3" />
-            <label for="Vue and a Half Men">Vue and a Half Men</label>
+          <li v-for="organization in UNIQUE_ORGANIZATIONS" :key="organization" class="w-1/2 h-8">
+            <input :id="organization" type="checkbox" v-model="selectedOrganizations" :value="organization" class="mr-3" @change="selectOrganization" />
+            <label :for="organization">{{organization}}</label>
           </li>
         </ul>
       </fieldset>
@@ -25,10 +13,26 @@
   </accordion>
 </template>
 <script>
+import { mapGetters, mapMutations } from "vuex";
 import Accordion from "@/components/shared/Accordion";
+import {UNIQUE_ORGANIZATIONS, ADD_SELECTED_ORGANIZATIONS} from "@/store/constants";
 
 export default {
   name: "JobFiltersSidebarOrganization",
-  components: {Accordion}
+  data() {
+    return {
+      selectedOrganizations: []
+    }
+  },
+  components: {Accordion},
+  computed: {
+    ...mapGetters([UNIQUE_ORGANIZATIONS])
+  },
+  methods: {
+    ...mapMutations([ADD_SELECTED_ORGANIZATIONS]),
+    selectOrganization() {
+    this.ADD_SELECTED_ORGANIZATIONS(this.selectedOrganizations);
+    }
+  },
 }
 </script>

@@ -25,6 +25,8 @@ import BaseButton from '../shared/BaseButton'
 import ProfileImage from "./ProfileImage";
 import SubNav from "./SubNav";
 
+import { LOGIN_USER } from "@/store/constants";
+
 export default {
   components: { BaseButton, ProfileImage, SubNav },
   name: "MainNav",
@@ -41,7 +43,7 @@ export default {
     }
   },
   methods: {
-...mapMutations(["LOGIN_USER"])
+...mapMutations([LOGIN_USER])
   },
   computed: {
     headerHeightClass() {

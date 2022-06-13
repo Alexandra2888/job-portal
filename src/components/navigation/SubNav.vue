@@ -8,16 +8,22 @@
             d="M-552-180c0-6.627-5.373-12-12-12s-12,5.373-12,12s5.373,12,12,12S-552-173.373-552-180z M-564-171c-4.964,0-9-4.036-9-9   c0-4.963,4.036-9,9-9c4.963,0,9,4.037,9,9C-555-175.036-559.037-171-564-171z"/><path
             d="M-571-180h2c0-2.757,2.242-5,5-5v-2C-567.86-187-571-183.858-571-180z"/></g></svg>
       </div>
-      <span><span class="text-brand-green-1">1653</span> jobs matched</span>
+      <span>
+        <span class="text-brand-green-1">{{ FILTERED_JOBS_BY_ORGANIZATIONS.length }}</span> jobs matched</span>
     </div>
   </div>
 </template>
 <script>
+
+import { FILTERED_JOBS_BY_ORGANIZATIONS } from "@/store/constants";
+import { mapGetters} from "vuex";
+
 export default {
   name: "SubNav",
-  data() {
-    return {
-      onJobResultsPage: true
+  computed: {
+    ...mapGetters([FILTERED_JOBS_BY_ORGANIZATIONS]),
+    onJobResultsPage(){
+      return this.$route.name === "JobResultsPage"
     }
   }
 }
