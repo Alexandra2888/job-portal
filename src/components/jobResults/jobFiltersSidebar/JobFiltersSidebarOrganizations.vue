@@ -4,7 +4,8 @@
       <fieldset>
         <ul class="flex flex-row flex-wrap">
           <li v-for="organization in UNIQUE_ORGANIZATIONS" :key="organization" class="w-1/2 h-8">
-            <input :id="organization" type="checkbox" v-model="selectedOrganizations" :value="organization" class="mr-3" @change="selectOrganization" />
+            <input :id="organization" type="checkbox" v-model="selectedOrganizations"
+                   :value="organization" class="mr-3" @change="selectOrganization" />
             <label :for="organization">{{organization}}</label>
           </li>
         </ul>

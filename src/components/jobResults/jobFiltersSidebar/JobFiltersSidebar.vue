@@ -8,9 +8,7 @@
         </div>
       </div>
       <accordion header="Degree" />
-      <accordion header="Job Type">
-        <p>Placeholder for now</p>
-      </accordion>
+     <job-filters-sidebar-job-types />
 <job-filters-sidebar-organization />
     </section>
   </div>
@@ -19,9 +17,10 @@
 import Accordion from "@/components/shared/Accordion";
 import BaseButton from "@/components/shared/BaseButton";
 import JobFiltersSidebarOrganization from "@/components/jobResults/jobFiltersSidebar/JobFiltersSidebarOrganizations";
+import JobFiltersSidebarJobTypes from "@/components/jobResults/jobFiltersSidebar/JobFiltersSidebarJobTypes";
 export default {
   name: "JobFiltersSidebar",
-  components: {JobFiltersSidebarOrganization, BaseButton, Accordion}
+  components: {JobFiltersSidebarJobTypes, JobFiltersSidebarOrganization, BaseButton, Accordion}
 
 };
 </script>

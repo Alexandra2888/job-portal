@@ -20,7 +20,7 @@ export default {
   },
   async mounted(){
 
-    const response = await axios.get("  http://localhost:080/spotlights");
+    const response = await axios.get("  http://localhost:8080/spotlights");
     this.spotlights = response.data;
   }
 }

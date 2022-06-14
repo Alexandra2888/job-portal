@@ -1,4 +1,4 @@
-import getJobs from "../../api/getJobs";
+import getJobs from "../api/getJobs";
 import {FETCH_JOBS, RECEIVE_JOBS} from "@/store/constants";
 
  const actions = {

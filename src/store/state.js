@@ -2,7 +2,8 @@ const state = () => {
     return {
         isLoggedIn: false,
         jobs:[],
-        selectedOrganizations: []
+        selectedOrganizations: [],
+        selectedJobTypes: []
     };
 };
 export default state;
