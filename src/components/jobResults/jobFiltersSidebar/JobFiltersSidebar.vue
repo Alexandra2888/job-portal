@@ -8,19 +8,44 @@
         </div>
       </div>
       <accordion header="Degree" />
-     <job-filters-sidebar-job-types />
-<job-filters-sidebar-organization />
+      <job-filter-sidebar-checkbox-group :mutation="ADD_SELECTED_JOB_TYPES"
+                                         :unique-values="uniqueJobTypes"
+                                         header="Job type" />
+      <job-filter-sidebar-checkbox-group :mutation="ADD_SELECTED_ORGANIZATIONS"
+                                         :unique-values="uniqueOrganizations"
+                                         header="Organization" />
     </section>
   </div>
 </template>
 <script>
 import Accordion from "@/components/shared/Accordion";
 import BaseButton from "@/components/shared/BaseButton";
-import JobFiltersSidebarOrganization from "@/components/jobResults/jobFiltersSidebar/JobFiltersSidebarOrganizations";
-import JobFiltersSidebarJobTypes from "@/components/jobResults/jobFiltersSidebar/JobFiltersSidebarJobTypes";
+import JobFilterSidebarCheckboxGroup from "@/components/jobResults/jobFiltersSidebar/JobFilterSidebarCheckboxGroup";
+
+import { useUniqueOrganizations, useUniqueJobTypes} from "@/store/composable";
+import {ADD_SELECTED_ORGANIZATIONS, ADD_SELECTED_JOB_TYPES} from "@/store/constants";
+
 export default {
   name: "JobFiltersSidebar",
-  components: {JobFiltersSidebarJobTypes, JobFiltersSidebarOrganization, BaseButton, Accordion}
+  components: {
+    BaseButton,
+    Accordion,
+    JobFilterSidebarCheckboxGroup
+  },
 
+  setup() {
+    const uniqueJobTypes = useUniqueJobTypes();
+    const uniqueOrganizations = useUniqueOrganizations();
+
+
+
+
+    return {
+      uniqueJobTypes,
+      uniqueOrganizations,
+      ADD_SELECTED_JOB_TYPES,
+      ADD_SELECTED_ORGANIZATIONS
+    }
+  }
 };
 </script>

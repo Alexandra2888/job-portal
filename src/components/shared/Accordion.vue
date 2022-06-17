@@ -10,28 +10,29 @@
 </div>
 </template>
 <script>
+import { ref, computed } from "vue";
 export default {
   name: "Accordion",
   props: {
     header: {
       type: String,
-      required: true
+      require: true
     }
   },
-  data() {
-    return {
-      isOpen: false
+  setup() {
+    const isOpen = ref(false);
+
+    const open = ()=> {
+      isOpen.value = !isOpen.value;
     };
-  },
-  computed: {
-    caretIcon(){
-      return this.isOpen ? ["fas", "angle-up"] : ["fas", "angle-down"];
+
+    const caretIcon = computed(() =>
+        isOpen.value ? ["fas", "angle-up"] : ["fas", "angle-down"]
+    )
+    return {
+      open, isOpen, caretIcon
     }
-  },
-  methods: {
-    open(){
-        this.isOpen = !this.isOpen;
-      }
-    }
+  }
 }
+
 </script>

@@ -4,6 +4,7 @@
   </button>
 </template>
 <script>
+import {computed, toRefs} from "vue";
 export default {
   name: "BaseButton",
   props: {"text": {
@@ -19,12 +20,18 @@ export default {
        }
      }
   },
-  computed: {
-    buttonClass() {
-      return {
-      [this.type]: true
-      };
-    },
+  setup(props) {
+    const { type } = toRefs(props);
+
+const buttonClass = computed(()=> {
+  return {
+    [type.value] : true
+  }
+})
+
+    return {
+  buttonClass
+    }
   },
 }
 </script>
