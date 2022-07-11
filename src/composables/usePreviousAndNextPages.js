@@ -1,6 +1,6 @@
 import {computed} from "vue"
 
-const usePreviousAnsNextPages = (currentPage, maxPage) => {
+const usePreviousAndNextPages = (currentPage, maxPage) => {
     const previousPage = computed(() => {
         const previousPage = currentPage.value - 1;
         const firstPage = 1;
@@ -15,4 +15,4 @@ const usePreviousAnsNextPages = (currentPage, maxPage) => {
     return (previousPage, nextPage);
 }
 
-export default usePreviousAnsNextPages;
+export default usePreviousAndNextPages;

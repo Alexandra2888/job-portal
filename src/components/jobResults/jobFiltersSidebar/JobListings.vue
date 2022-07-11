@@ -30,7 +30,7 @@ import {useFetchJobsDispatch, useFilteredJobs} from "@/store/composable";
 import JobListing from "@/components/jobResults/JobListing";
 import {computed, onMounted} from "vue";
 import  useCurrentPage  from "@/composables/useCurrentPage";
-import usePreviousAnsNextPages from "@/composables/usePreviousAnsNextPages";
+import usePreviousAndNextPages from "@/composables/usePreviousAndNextPages";
 
 export default {
   name: "JobListings",
@@ -47,7 +47,7 @@ const currentPage = useCurrentPage();
 
 const maxPage = computed(() => Math.ceil(filteredJobs.value.length / 10 ))
 
-    const { previousPage, nextPage } = usePreviousAnsNextPages( currentPage, maxPage)
+    const { previousPage, nextPage } = usePreviousAndNextPages( currentPage, maxPage)
 
     const displayedJobs = computed(()=> {
   const pageNumber = currentPage.value;
